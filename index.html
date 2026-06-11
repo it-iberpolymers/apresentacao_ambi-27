@@ -118,16 +118,26 @@ p.lead{color:var(--txt-dim);font-size:clamp(15px,1.8vw,18px);max-width:640px;mar
 .band .n .unit{font-size:.45em;color:var(--green-bright);font-weight:600}
 .band .l{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-dim);margin-top:6px}
 
-/* tabs */
-.tabs{display:flex;gap:10px;margin:48px 0 0;flex-wrap:wrap}
-.tab{cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600;font-size:15px;padding:13px 26px;border-radius:999px;border:1px solid var(--line);background:var(--dark-2);color:var(--txt-dim);transition:all .25s}
-.tab:hover{color:var(--txt);border-color:rgba(122,185,41,.5)}
-.tab.on{background:var(--green);color:#06110a;border-color:var(--green)}
-.panel{display:none;margin-top:40px;animation:fadeUp .5s cubic-bezier(.2,.65,.25,1)}
-.panel.on{display:block}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.panel .desc{color:var(--txt-dim);font-size:15px;max-width:680px;margin-bottom:28px}
-.panel .desc strong{color:var(--txt)}
+/* cartões de sistema de elevação */
+.sysn{font-family:'Outfit',sans-serif;font-size:36px;font-weight:700;color:var(--txt);margin:4px 0 16px;line-height:1.1}
+.sysn .u{font-size:.45em;color:var(--green-bright);font-weight:600}
+.sysn span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-dim);font-weight:600;margin-top:4px}
+.btn-doc{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:13.5px;font-weight:600;color:var(--green-bright);border:1px solid rgba(122,185,41,.5);padding:10px 18px;border-radius:999px;transition:all .2s;cursor:pointer}
+.btn-doc:hover{background:var(--green);color:#06110a;border-color:var(--green)}
+.btn-doc svg{width:16px;height:16px;stroke:currentColor}
+
+/* anexo técnico */
+.annex{border:1px solid var(--line);border-radius:18px;background:var(--dark-2);margin-top:16px;overflow:hidden}
+.annex summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;padding:20px 24px;font-family:'Outfit',sans-serif;font-weight:600;font-size:16px}
+.annex summary::-webkit-details-marker{display:none}
+.annex summary::after{content:'+';font-size:22px;color:var(--green-bright);transition:transform .25s;line-height:1}
+.annex[open] summary::after{transform:rotate(45deg)}
+.annex .abody{padding:0 24px 24px}
+
+/* dica de teclado (modo apresentação) */
+.kbdhint{position:fixed;bottom:18px;right:18px;z-index:800;font-size:11px;letter-spacing:.06em;color:var(--txt-dim);background:rgba(245,244,240,.88);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px;padding:8px 14px}
+.kbdhint b{color:var(--txt);font-weight:600}
+@media(max-width:860px),(hover:none){.kbdhint{display:none}}
 
 /* tables */
 .tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:var(--dark-2)}
@@ -199,7 +209,7 @@ footer b i{color:var(--green);font-style:normal}
   <a class="lnk" href="#engenharia">Engenharia</a>
   <a class="lnk" href="#elevacao">Elevação</a>
   <a class="lnk" href="#volteador">Volteador</a>
-  <a class="lnk" href="#specs">Dimensões</a>
+  <a class="lnk" href="#specs">Anexo técnico</a>
   <a class="cta" href="#contacto">Contactar</a>
 </nav>
 
@@ -314,13 +324,13 @@ footer b i{color:var(--green);font-style:normal}
   </div>
 </section>
 
-<!-- BAND STATS -->
+<!-- BAND: ARGUMENTO ECONÓMICO -->
 <div class="band">
   <div class="wrap">
-    <div class="rv"><div class="n"><span class="count" data-to="1690">0</span><span class="unit"> mm</span></div><div class="l">Profundidade</div></div>
-    <div class="rv d1"><div class="n"><span class="count" data-to="1450">0</span><span class="unit"> mm</span></div><div class="l">Largura</div></div>
-    <div class="rv d2"><div class="n"><span class="count" data-to="1580">0</span><span class="unit"> mm</span></div><div class="l">Altura do corpo</div></div>
-    <div class="rv d3"><div class="n"><span class="count" data-to="86">0</span><span class="unit">º</span></div><div class="l">Abertura das portas</div></div>
+    <div class="rv"><div class="n">0<span class="unit"> €</span></div><div class="l">Em novas viaturas de recolha</div></div>
+    <div class="rv d1"><div class="n"><span class="count" data-to="5">0</span></div><div class="l">Fluxos de resíduo, um só modelo</div></div>
+    <div class="rv d2"><div class="n"><span class="count" data-to="16">0</span><span class="unit"> L</span></div><div class="l">Pilhão integrado opcional</div></div>
+    <div class="rv d3"><div class="n"><span class="count" data-to="100">0</span><span class="unit">%</span></div><div class="l">Reciclável no fim de vida</div></div>
   </div>
 </div>
 
@@ -370,65 +380,39 @@ footer b i{color:var(--green);font-style:normal}
 <section id="elevacao" style="background:var(--dark-2)">
   <div class="wrap">
     <div class="sec-kicker rv">Sistemas de elevação</div>
-    <h2 class="title rv d1">Três sistemas.<br>Uma plataforma adaptável a cada cidade.</h2>
-    <p class="lead rv d2">Recolha superior, despejo inferior. As diferentes estruturas de elevação — soldadas e aparafusadas no topo do contentor — permitem a fácil adaptação à frota de recolha de cada município.</p>
+    <h2 class="title rv d1">Adapta-se à sua frota.<br>Não a frota ao contentor.</h2>
+    <p class="lead rv d2">Recolha superior, despejo inferior. Três estruturas de elevação disponíveis — escolha a compatível com as gruas que o município já tem. Zero investimento em novas viaturas.</p>
 
-    <div class="tabs rv d2" role="tablist">
-      <button class="tab on" data-p="p-argola" role="tab" aria-selected="true" aria-controls="p-argola" id="t-argola">Argola Dupla</button>
-      <button class="tab" data-p="p-f90" role="tab" aria-selected="false" aria-controls="p-f90" id="t-f90">F90</button>
-      <button class="tab" data-p="p-kin" role="tab" aria-selected="false" aria-controls="p-kin" id="t-kin">Kinshofer</button>
-    </div>
-
-    <div class="panel on" id="p-argola" role="tabpanel" aria-labelledby="t-argola">
-      <p class="desc">Sistema clássico de <strong>argola dupla</strong> para grua. Altura total com argola: <strong>1800 mm</strong>.</p>
-      <div class="tbl-scroll">
-        <table>
-          <thead><tr><th>Ref.</th><th>RSU</th><th>Profundidade</th><th>Largura</th><th>Altura c/ argola</th><th>Altura</th><th>Altura até à boca</th><th>Volume útil / nominal</th><th>Cor RSU</th></tr></thead>
-          <tbody>
-            <tr><td>AMBI5890</td><td>Papelão</td><td>1690 mm</td><td>1450 mm</td><td>1800 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#27408F"></span>RAL 5013</span></td></tr>
-            <tr><td>AMBI5891</td><td>Embalão</td><td>1690 mm</td><td>1450 mm</td><td>1800 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#F7B500"></span>RAL 1023</span></td></tr>
-            <tr><td>AMBI5892B</td><td>Vidrão</td><td>1690 mm</td><td>1450 mm</td><td>1800 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#0F7A3D"></span>RAL 6029</span></td></tr>
-            <tr><td>AMBI5892</td><td>Vidrão</td><td>1690 mm</td><td>1450 mm</td><td>1800 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#0F7A3D"></span>RAL 6029</span></td></tr>
-            <tr><td>AMBI5893A</td><td>Indiferenciados</td><td>1690 mm</td><td>1450 mm</td><td>1800 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#383E42"></span>RAL 7016</span></td></tr>
-            <tr><td>AMBI5893B</td><td>Indiferenciados</td><td>1690 mm</td><td>1450 mm</td><td>1800 mm</td><td>1620 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#383E42"></span>RAL 7016</span></td></tr>
-          </tbody>
-        </table>
+    <div class="cards" style="margin-top:48px">
+      <div class="card rv d1">
+        <h3>Argola Dupla</h3>
+        <p class="sysn">1800 <span class="u">mm</span><span>Altura total com argola</span></p>
+        <p>O sistema clássico universal — compatível com a grua de dupla argola, a mais comum nas frotas municipais.</p>
+        <a class="btn-doc" href="docs/ft-ambi27-argola-dupla.pdf" download>
+          <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+          Ficha técnica (PDF)
+        </a>
+      </div>
+      <div class="card rv d2">
+        <h3>F90</h3>
+        <p class="sysn">1741 <span class="u">mm</span><span>Altura total com F90</span></p>
+        <p>Gancho simples de perfil compacto — menos altura total, mesma capacidade de elevação.</p>
+        <a class="btn-doc" href="docs/ft-ambi27-f90.pdf" download>
+          <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+          Ficha técnica (PDF)
+        </a>
+      </div>
+      <div class="card rv d3">
+        <h3>Kinshofer</h3>
+        <p class="sysn">1080 <span class="u">mm</span><span>Altura do encaixe</span></p>
+        <p>Sistema de pinça — a opção mais discreta na via pública, sem elementos salientes no topo.</p>
+        <a class="btn-doc" href="docs/ft-ambi27-kinshofer.pdf" download>
+          <svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+          Ficha técnica (PDF)
+        </a>
       </div>
     </div>
-
-    <div class="panel" id="p-f90" role="tabpanel" aria-labelledby="t-f90">
-      <p class="desc">Sistema <strong>F90</strong> de gancho simples. Altura total com F90: <strong>1741 mm</strong> — perfil mais compacto.</p>
-      <div class="tbl-scroll">
-        <table>
-          <thead><tr><th>Ref.</th><th>RSU</th><th>Profundidade</th><th>Largura</th><th>Altura c/ F90</th><th>Altura</th><th>Altura até à boca</th><th>Volume útil / nominal</th><th>Cor RSU</th></tr></thead>
-          <tbody>
-            <tr><td>AMBI5901A</td><td>Papelão</td><td>1690 mm</td><td>1450 mm</td><td>1741 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#27408F"></span>RAL 5013</span></td></tr>
-            <tr><td>AMBI5902A</td><td>Embalão</td><td>1690 mm</td><td>1450 mm</td><td>1741 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#F7B500"></span>RAL 1023</span></td></tr>
-            <tr><td>AMBI5900A</td><td>Vidrão</td><td>1690 mm</td><td>1450 mm</td><td>1741 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#0F7A3D"></span>RAL 6029</span></td></tr>
-            <tr><td>AMBI5900B</td><td>Vidrão</td><td>1690 mm</td><td>1450 mm</td><td>1741 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#0F7A3D"></span>RAL 6029</span></td></tr>
-            <tr><td>AMBI5903A</td><td>Indiferenciados</td><td>1690 mm</td><td>1450 mm</td><td>1741 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#383E42"></span>RAL 7016</span></td></tr>
-            <tr><td>AMBI5903B</td><td>Indiferenciados</td><td>1690 mm</td><td>1450 mm</td><td>1741 mm</td><td>1620 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#383E42"></span>RAL 7016</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="panel" id="p-kin" role="tabpanel" aria-labelledby="t-kin">
-      <p class="desc">Sistema <strong>Kinshofer</strong> de pinça. Altura do encaixe: <strong>1080 mm</strong> — a opção mais discreta na via pública.</p>
-      <div class="tbl-scroll">
-        <table>
-          <thead><tr><th>Ref.</th><th>RSU</th><th>Profundidade</th><th>Largura</th><th>Altura c/ kinshofer</th><th>Altura</th><th>Altura até à boca</th><th>Volume útil / nominal</th><th>Cor RSU</th></tr></thead>
-          <tbody>
-            <tr><td>AMBI5894</td><td>Papelão</td><td>1690 mm</td><td>1450 mm</td><td>1080 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#27408F"></span>RAL 5013</span></td></tr>
-            <tr><td>AMBI5895</td><td>Embalão</td><td>1690 mm</td><td>1450 mm</td><td>1080 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#F7B500"></span>RAL 1023</span></td></tr>
-            <tr><td>AMBI5896C</td><td>Vidrão</td><td>1690 mm</td><td>1450 mm</td><td>1080 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#0F7A3D"></span>RAL 6029</span></td></tr>
-            <tr><td>AMBI5896D</td><td>Vidrão</td><td>1690 mm</td><td>1450 mm</td><td>1080 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#0F7A3D"></span>RAL 6029</span></td></tr>
-            <tr><td>AMBI5899A</td><td>Indiferenciados</td><td>1690 mm</td><td>1450 mm</td><td>1080 mm</td><td>1580 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#383E42"></span>RAL 7016</span></td></tr>
-            <tr><td>AMBI5899B</td><td>Indiferenciados</td><td>1690 mm</td><td>1450 mm</td><td>1080 mm</td><td>1620 mm</td><td>1200 mm</td><td>2.3 / 2.7 m³</td><td><span class="chip"><span class="sw" style="background:#383E42"></span>RAL 7016</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <p class="rv d3" style="margin-top:28px;font-size:13.5px;color:var(--txt-dim)">Todas as versões: 2.3 / 2.7 m³ · disponíveis para os 5 fluxos de resíduo · referências e medidas completas nas fichas técnicas.</p>
   </div>
 </section>
 
@@ -500,34 +484,64 @@ footer b i{color:var(--green);font-style:normal}
   </div>
 </section>
 
-<!-- BOCAS / SPECS -->
+<!-- ANEXO TÉCNICO -->
 <section id="specs">
   <div class="wrap">
-    <div class="sec-kicker rv">Bocas &amp; configurações</div>
-    <h2 class="title rv d1">Uma boca para cada resíduo.</h2>
-    <p class="lead rv d2">Entradas personalizáveis em duas faces do contentor, protegidas com palas de borracha. Cores identificativas aplicáveis apenas nas bocas ou em todo o corpo.</p>
-    <div class="tbl-scroll rv d3" style="margin-top:48px">
-      <table>
-        <thead><tr><th>Fluxo RSU</th><th>Largura da boca</th><th>Altura da boca</th><th>Diâmetro</th><th>Cor</th></tr></thead>
-        <tbody>
-          <tr><td>Papelão</td><td>645 mm</td><td>200 mm</td><td>—</td><td><span class="chip"><span class="sw" style="background:#27408F"></span>RAL 5013</span></td></tr>
-          <tr><td>Embalão</td><td>390 mm</td><td>250 mm</td><td>—</td><td><span class="chip"><span class="sw" style="background:#F7B500"></span>RAL 1023</span></td></tr>
-          <tr><td>Vidrão (circular)</td><td>—</td><td>—</td><td>Ø 200 mm</td><td><span class="chip"><span class="sw" style="background:#0F7A3D"></span>RAL 6029</span></td></tr>
-          <tr><td>Vidrão (retangular)</td><td>280 mm</td><td>250 mm</td><td>—</td><td><span class="chip"><span class="sw" style="background:#0F7A3D"></span>RAL 6029</span></td></tr>
-          <tr><td>Indiferenciados A</td><td>516 mm</td><td>272 mm</td><td>—</td><td><span class="chip"><span class="sw" style="background:#383E42"></span>RAL 7016</span></td></tr>
-          <tr><td>Indiferenciados B</td><td>585 mm</td><td>310 mm</td><td>—</td><td><span class="chip"><span class="sw" style="background:#383E42"></span>RAL 7016</span></td></tr>
-        </tbody>
-      </table>
-    </div>
+    <div class="sec-kicker rv">Anexo técnico</div>
+    <h2 class="title rv d1" style="font-size:clamp(26px,3.5vw,42px)">Os detalhes, quando precisar deles.</h2>
+    <p class="lead rv d2">Dimensões, bocas e cores normalizadas — sem interromper a conversa. As fichas técnicas completas estão disponíveis na secção de sistemas de elevação.</p>
 
-    <div class="rals">
-      <div class="ral rv"><div class="c" style="background:#27408F"></div><div class="i"><b>RAL 5013</b><span>Papel &amp; Cartão</span></div></div>
-      <div class="ral rv d1"><div class="c" style="background:#0F7A3D"></div><div class="i"><b>RAL 6029</b><span>Vidro</span></div></div>
-      <div class="ral rv d2"><div class="c" style="background:#F7B500"></div><div class="i"><b>RAL 1023</b><span>Plástico &amp; Metal</span></div></div>
-      <div class="ral rv d3"><div class="c" style="background:#383E42"></div><div class="i"><b>RAL 7016</b><span>Indiferenciados</span></div></div>
-      <div class="ral rv d3"><div class="c" style="background:#2B3034"></div><div class="i"><b>RAL 7017</b><span>Indiferenciados</span></div></div>
-      <div class="ral rv d4"><div class="c" style="background:#6B3F2A"></div><div class="i"><b>RAL 8020</b><span>Pilhão</span></div></div>
-    </div>
+    <details class="annex rv d2" style="margin-top:40px">
+      <summary>Dimensões gerais</summary>
+      <div class="abody">
+        <div class="tbl-scroll">
+          <table style="min-width:0">
+            <tbody>
+              <tr><td>Profundidade × Largura</td><td>1690 × 1450 mm</td></tr>
+              <tr><td>Altura do corpo</td><td>1580 mm (1620 mm na versão B)</td></tr>
+              <tr><td>Altura até à boca</td><td>1200 mm</td></tr>
+              <tr><td>Volume útil / nominal</td><td>2.3 / 2.7 m³</td></tr>
+              <tr><td>Abertura das portas de despejo</td><td>86º</td></tr>
+              <tr><td>Altura total: Argola Dupla / F90 / Kinshofer</td><td>1800 / 1741 / 1080 mm</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <details class="annex rv d3">
+      <summary>Bocas por fluxo de resíduo</summary>
+      <div class="abody">
+        <p style="font-size:13.5px;color:var(--txt-dim);margin-bottom:16px">Entradas personalizáveis em duas faces do contentor, protegidas com palas de borracha. Cores aplicáveis apenas nas bocas ou em todo o corpo.</p>
+        <div class="tbl-scroll">
+          <table>
+            <thead><tr><th>Fluxo RSU</th><th>Largura da boca</th><th>Altura da boca</th><th>Diâmetro</th><th>Cor</th></tr></thead>
+            <tbody>
+              <tr><td>Papelão</td><td>645 mm</td><td>200 mm</td><td>—</td><td><span class="chip"><span class="sw" style="background:#27408F"></span>RAL 5013</span></td></tr>
+              <tr><td>Embalão</td><td>390 mm</td><td>250 mm</td><td>—</td><td><span class="chip"><span class="sw" style="background:#F7B500"></span>RAL 1023</span></td></tr>
+              <tr><td>Vidrão (circular)</td><td>—</td><td>—</td><td>Ø 200 mm</td><td><span class="chip"><span class="sw" style="background:#0F7A3D"></span>RAL 6029</span></td></tr>
+              <tr><td>Vidrão (retangular)</td><td>280 mm</td><td>250 mm</td><td>—</td><td><span class="chip"><span class="sw" style="background:#0F7A3D"></span>RAL 6029</span></td></tr>
+              <tr><td>Indiferenciados A</td><td>516 mm</td><td>272 mm</td><td>—</td><td><span class="chip"><span class="sw" style="background:#383E42"></span>RAL 7016</span></td></tr>
+              <tr><td>Indiferenciados B</td><td>585 mm</td><td>310 mm</td><td>—</td><td><span class="chip"><span class="sw" style="background:#383E42"></span>RAL 7016</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <details class="annex rv d4">
+      <summary>Cores normalizadas (RAL)</summary>
+      <div class="abody">
+        <div class="rals" style="margin-top:8px">
+          <div class="ral"><div class="c" style="background:#27408F"></div><div class="i"><b>RAL 5013</b><span>Papel &amp; Cartão</span></div></div>
+          <div class="ral"><div class="c" style="background:#0F7A3D"></div><div class="i"><b>RAL 6029</b><span>Vidro</span></div></div>
+          <div class="ral"><div class="c" style="background:#F7B500"></div><div class="i"><b>RAL 1023</b><span>Plástico &amp; Metal</span></div></div>
+          <div class="ral"><div class="c" style="background:#383E42"></div><div class="i"><b>RAL 7016</b><span>Indiferenciados</span></div></div>
+          <div class="ral"><div class="c" style="background:#2B3034"></div><div class="i"><b>RAL 7017</b><span>Indiferenciados</span></div></div>
+          <div class="ral"><div class="c" style="background:#6B3F2A"></div><div class="i"><b>RAL 8020</b><span>Pilhão</span></div></div>
+        </div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -575,6 +589,8 @@ footer b i{color:var(--green);font-style:normal}
   </div>
 </section>
 
+<div class="kbdhint"><b>◂ ▸</b> navegar por secções</div>
+
 <footer>
   <b><i>AMBI</i>CONCEPT · Waste Solutions</b>
   <span>Company by Iberpolymers Group · Certificado TÜV Rheinland · 100% Reciclável · Economia Circular</span>
@@ -618,14 +634,23 @@ const vio=new IntersectionObserver(es=>es.forEach(e=>{
 }),{threshold:.35});
 document.querySelectorAll('.lazyvid').forEach(v=>vio.observe(v));
 
-// tabs
-document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
-  document.querySelectorAll('.tab').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-selected','false')});
-  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));
-  t.classList.add('on');
-  t.setAttribute('aria-selected','true');
-  document.getElementById(t.dataset.p).classList.add('on');
-}));
+// modo apresentação: setas / PageUp-PageDown navegam secção a secção
+const slides=[document.querySelector('.hero'),...document.querySelectorAll('section'),document.querySelector('.band')]
+  .filter(Boolean).sort((a,b)=>a.offsetTop-b.offsetTop);
+function curSlide(){
+  const y=scrollY+innerHeight*.4;
+  let i=0;slides.forEach((s,k)=>{if(s.offsetTop<=y)i=k});return i;
+}
+addEventListener('keydown',e=>{
+  if(e.target.closest('input,textarea,select')||e.metaKey||e.ctrlKey||e.altKey)return;
+  if(['ArrowDown','ArrowRight','PageDown'].includes(e.key)){
+    e.preventDefault();
+    slides[Math.min(curSlide()+1,slides.length-1)].scrollIntoView({behavior:'smooth'});
+  }else if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){
+    e.preventDefault();
+    slides[Math.max(curSlide()-1,0)].scrollIntoView({behavior:'smooth'});
+  }
+});
 
 // subtle hero parallax
 const heroVid=document.querySelector('.hero video');
