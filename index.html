@@ -33,7 +33,7 @@ a{color:inherit;text-decoration:none}
 ::selection{background:var(--green);color:#06110a}
 
 /* progress bar */
-#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--green-bright),var(--green));z-index:1000;transition:width .1s linear}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:#7AB929;z-index:1000;transition:width .1s linear}
 
 /* logo */
 .site-logo{position:fixed;top:18px;left:24px;z-index:900;display:block;width:240px;height:80px}
@@ -67,7 +67,7 @@ nav a.cta:hover{background:var(--green-bright-hover)}
 .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.45);opacity:.6}}
 .hero h1{font-size:clamp(56px,11vw,150px);font-weight:800;line-height:.95;letter-spacing:-.02em}
-.hero h1 .g{background:linear-gradient(120deg,#105C44 10%,#7AB929 60%,#C5EE8A);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 18px rgba(8,14,10,.35))}
+.hero h1 .g{color:#7AB929;filter:drop-shadow(0 2px 18px rgba(8,14,10,.35))}
 .hero p.sub{font-size:clamp(16px,2.2vw,22px);color:rgba(255,255,255,.82);max-width:640px;margin:26px auto 0;text-shadow:0 1px 14px rgba(8,14,10,.4)}
 .hero p.sub strong{color:#fff}
 .hero .stats{display:flex;gap:clamp(20px,5vw,64px);justify-content:center;margin-top:56px;flex-wrap:wrap}
@@ -96,9 +96,9 @@ p.lead{color:var(--txt-dim);font-size:clamp(15px,1.8vw,18px);max-width:640px;mar
 
 /* benefit cards */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:56px}
-.card{background:linear-gradient(160deg,#FFFFFF,var(--dark-2));border:1px solid var(--line);border-radius:22px;padding:36px 30px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;box-shadow:0 14px 34px -22px rgba(16,32,20,.25)}
+.card{background:#FFFFFF;border:1px solid var(--line);border-radius:22px;padding:36px 30px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;box-shadow:0 14px 34px -22px rgba(16,32,20,.25)}
 .card:hover{transform:translateY(-6px);border-color:rgba(122,185,41,.45)}
-.card::before{content:'';position:absolute;top:-60px;right:-60px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(122,185,41,.16),transparent 70%);transition:opacity .3s;opacity:0}
+.card::before{content:'';position:absolute;top:-60px;right:-60px;width:160px;height:160px;border-radius:50%;background:rgba(122,185,41,.12);transition:opacity .3s;opacity:0}
 .card:hover::before{opacity:1}
 .card .ic{width:52px;height:52px;border-radius:14px;background:rgba(122,185,41,.12);border:1px solid rgba(122,185,41,.3);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
 .card .ic svg{width:26px;height:26px;stroke:var(--green-bright)}
@@ -120,7 +120,7 @@ p.lead{color:var(--txt-dim);font-size:clamp(15px,1.8vw,18px);max-width:640px;mar
 .feat p{font-size:14px;color:var(--txt-dim)}
 
 /* big numbers band */
-.band{background:linear-gradient(120deg,rgba(122,185,41,.12),rgba(122,185,41,.03));border-top:1px solid rgba(122,185,41,.2);border-bottom:1px solid rgba(122,185,41,.2);padding:64px 24px;margin-top:90px}
+.band{background:rgba(122,185,41,.08);border-top:1px solid rgba(122,185,41,.2);border-bottom:1px solid rgba(122,185,41,.2);padding:64px 24px;margin-top:90px}
 .band .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;text-align:center}
 .band .n{font-family:'JetBrains Mono',monospace;font-size:clamp(36px,5vw,58px);font-weight:700;color:var(--txt)}
 .band .n .unit{font-family:'Outfit',sans-serif;font-size:.45em;color:var(--green-bright);font-weight:600}
@@ -191,7 +191,7 @@ tbody td:not(:first-child){font-family:'JetBrains Mono',monospace;font-size:13px
 
 /* footer cta */
 .final{position:relative;overflow:hidden;text-align:center;padding:clamp(100px,16vh,180px) 24px}
-.final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(122,185,41,.22),transparent 60%)}
+.final::before{content:'';position:absolute;inset:0;background:rgba(122,185,41,.07)}
 .final .inner{position:relative;z-index:2}
 .final h2{font-size:clamp(36px,6vw,72px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
 .final p{color:var(--txt-dim);margin:22px auto 40px;max-width:560px}
@@ -594,7 +594,7 @@ footer b i{color:var(--green);font-style:normal}
 <section class="final" id="contacto">
   <div class="inner">
     <div class="kicker rv"><span class="dot"></span>AMBI 2.7 · Ambiconcept Waste Solutions</div>
-    <h2 class="rv d1">A sua cidade merece<br><span style="background:linear-gradient(120deg,#105C44,var(--green));-webkit-background-clip:text;background-clip:text;color:transparent">o melhor contentor.</span></h2>
+    <h2 class="rv d1">A sua cidade merece<br><span style="color:#7AB929">o melhor contentor.</span></h2>
     <p class="rv d2">Fale connosco e descubra a configuração ideal do AMBI 2.7 para o seu município — sistemas de elevação, volteador, sensorização e personalização completa.</p>
     <a class="btn-big rv d3" href="mailto:sales@ambiconcept.pt">
       <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
