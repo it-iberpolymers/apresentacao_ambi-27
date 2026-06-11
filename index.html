@@ -35,12 +35,15 @@ a{color:inherit;text-decoration:none}
 /* progress bar */
 #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--green-bright),var(--green));z-index:1000;transition:width .1s linear}
 
+/* logo */
+.site-logo{position:fixed;top:18px;left:24px;z-index:900;display:block}
+.site-logo img{height:80px;width:auto;object-fit:contain;filter:drop-shadow(0 4px 16px rgba(8,14,10,.35))}
+@media(max-width:860px){.site-logo img{height:54px}}
+
 /* nav */
 nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:900;display:flex;align-items:center;gap:6px;
   background:rgba(245,244,240,.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 8px 30px -12px rgba(16,32,20,.25);
-  border:1px solid var(--line);border-radius:999px;padding:8px 10px 8px 20px;max-width:calc(100vw - 32px);white-space:nowrap}
-nav .brand{font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;letter-spacing:.04em;margin-right:8px}
-nav .brand b{color:var(--green)}
+  border:1px solid var(--line);border-radius:999px;padding:8px 10px;max-width:calc(100vw - 32px);white-space:nowrap}
 nav a.lnk{font-size:13px;color:var(--txt-dim);padding:8px 12px;border-radius:999px;transition:color .2s,background .2s;cursor:pointer}
 nav a.lnk:hover{color:var(--txt);background:rgba(16,32,20,.06)}
 nav a.cta{font-size:13px;font-weight:600;background:var(--green-bright);color:var(--dark);padding:9px 18px;border-radius:999px;transition:background .2s,transform .2s;cursor:pointer}
@@ -206,8 +209,9 @@ footer b i{color:var(--green);font-style:normal}
 
 <div id="progress"></div>
 
+<a href="#top" class="site-logo"><img src="logos/ambiconcept-principal-white.svg" alt="Ambiconcept"></a>
+
 <nav>
-  <a href="#top" class="brand"><b>AMBI</b>CONCEPT</a>
   <a class="lnk" href="#grupo">Grupo</a>
   <a class="lnk" href="#vantagens">Vantagens</a>
   <a class="lnk" href="#engenharia">Engenharia</a>
@@ -596,7 +600,7 @@ footer b i{color:var(--green);font-style:normal}
 <div class="kbdhint"><b>◂ ▸</b> navegar por secções</div>
 
 <footer>
-  <b><i>AMBI</i>CONCEPT · Waste Solutions</b>
+  <img src="logos/ambiconcept-principal.svg" alt="Ambiconcept" style="height:46px;width:auto;object-fit:contain">
   <span>Company by Iberpolymers Group · Certificado TÜV Rheinland · 100% Reciclável · Economia Circular</span>
 </footer>
 
