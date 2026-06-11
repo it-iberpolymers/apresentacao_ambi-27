@@ -6,12 +6,13 @@
 <title>AMBI 2.7 — Contentor de Carga Vertical | Ambiconcept</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --green:#7AB929;
   --green-bright:#105C44;
-  --green-hover:#6AA621;
+  --green-bright-hover:#0C4633;
+  --mid:#0E6650;
   --dark:#F5F4F0;
   --dark-2:#F0F3F9;
   --dark-3:#E8ECF4;
@@ -25,7 +26,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--txt);overflow-x:hidden;line-height:1.65}
+body{font-family:'Outfit',sans-serif;font-weight:400;background:var(--dark);color:var(--txt);overflow-x:hidden;line-height:1.65}
 h1,h2,h3,h4,.display{font-family:'Outfit',sans-serif}
 img,video{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -42,8 +43,8 @@ nav .brand{font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;letter
 nav .brand b{color:var(--green)}
 nav a.lnk{font-size:13px;color:var(--txt-dim);padding:8px 12px;border-radius:999px;transition:color .2s,background .2s;cursor:pointer}
 nav a.lnk:hover{color:var(--txt);background:rgba(16,32,20,.06)}
-nav a.cta{font-size:13px;font-weight:600;background:var(--green);color:#06110a;padding:9px 18px;border-radius:999px;transition:background .2s,transform .2s;cursor:pointer}
-nav a.cta:hover{background:var(--green-hover)}
+nav a.cta{font-size:13px;font-weight:600;background:var(--green-bright);color:var(--dark);padding:9px 18px;border-radius:999px;transition:background .2s,transform .2s;cursor:pointer}
+nav a.cta:hover{background:var(--green-bright-hover)}
 @media(max-width:860px){nav a.lnk{display:none}}
 
 /* hero */
@@ -64,8 +65,8 @@ nav a.cta:hover{background:var(--green-hover)}
 .hero p.sub strong{color:#fff}
 .hero .stats{display:flex;gap:clamp(20px,5vw,64px);justify-content:center;margin-top:56px;flex-wrap:wrap}
 .hero .stat{text-align:center}
-.hero .stat .n{font-family:'Outfit',sans-serif;font-size:clamp(30px,4.5vw,52px);font-weight:700;color:#fff}
-.hero .stat .n span.unit{font-size:.5em;color:#A8E063;font-weight:600;margin-left:2px}
+.hero .stat .n{font-family:'JetBrains Mono',monospace;font-size:clamp(30px,4.5vw,52px);font-weight:700;color:#fff}
+.hero .stat .n span.unit{font-family:'Outfit',sans-serif;font-size:.5em;color:#A8E063;font-weight:600;margin-left:2px}
 .hero .stat .n{text-shadow:0 2px 16px rgba(8,14,10,.45)}
 .hero .stat .l{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:4px;text-shadow:0 1px 10px rgba(8,14,10,.4)}
 .scrolldown{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--txt-dim);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
@@ -114,14 +115,16 @@ p.lead{color:var(--txt-dim);font-size:clamp(15px,1.8vw,18px);max-width:640px;mar
 /* big numbers band */
 .band{background:linear-gradient(120deg,rgba(122,185,41,.12),rgba(122,185,41,.03));border-top:1px solid rgba(122,185,41,.2);border-bottom:1px solid rgba(122,185,41,.2);padding:64px 24px;margin-top:90px}
 .band .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;text-align:center}
-.band .n{font-family:'Outfit',sans-serif;font-size:clamp(36px,5vw,58px);font-weight:700;color:var(--txt)}
-.band .n .unit{font-size:.45em;color:var(--green-bright);font-weight:600}
+.band .n{font-family:'JetBrains Mono',monospace;font-size:clamp(36px,5vw,58px);font-weight:700;color:var(--txt)}
+.band .n .unit{font-family:'Outfit',sans-serif;font-size:.45em;color:var(--green-bright);font-weight:600}
 .band .l{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-dim);margin-top:6px}
 
 /* cartões de sistema de elevação */
-.sysn{font-family:'Outfit',sans-serif;font-size:36px;font-weight:700;color:var(--txt);margin:4px 0 16px;line-height:1.1}
-.sysn .u{font-size:.45em;color:var(--green-bright);font-weight:600}
-.sysn span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-dim);font-weight:600;margin-top:4px}
+#elevacao .card{border-top:3px solid var(--mid)}
+#elevacao .card h3{color:var(--mid)}
+.sysn{font-family:'JetBrains Mono',monospace;font-size:36px;font-weight:700;color:var(--txt);margin:4px 0 16px;line-height:1.1}
+.sysn .u{font-family:'Outfit',sans-serif;font-size:.45em;color:var(--green-bright);font-weight:600}
+.sysn span{display:block;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-dim);font-weight:600;margin-top:4px}
 .btn-doc{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:13.5px;font-weight:600;color:var(--green-bright);border:1px solid rgba(122,185,41,.5);padding:10px 18px;border-radius:999px;transition:all .2s;cursor:pointer}
 .btn-doc:hover{background:var(--green);color:#06110a;border-color:var(--green)}
 .btn-doc svg{width:16px;height:16px;stroke:currentColor}
@@ -148,6 +151,7 @@ tbody tr:last-child td{border-bottom:none}
 tbody tr{transition:background .2s}
 tbody tr:hover{background:rgba(122,185,41,.05)}
 tbody td:first-child{color:var(--txt);font-weight:600}
+tbody td:not(:first-child){font-family:'JetBrains Mono',monospace;font-size:13px}
 .chip{display:inline-flex;align-items:center;gap:8px;font-size:12.5px}
 .sw{width:14px;height:14px;border-radius:4px;display:inline-block;border:1px solid rgba(0,0,0,.18)}
 
@@ -184,8 +188,8 @@ tbody td:first-child{color:var(--txt);font-weight:600}
 .final .inner{position:relative;z-index:2}
 .final h2{font-size:clamp(36px,6vw,72px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
 .final p{color:var(--txt-dim);margin:22px auto 40px;max-width:560px}
-.btn-big{display:inline-flex;align-items:center;gap:12px;background:var(--green);color:#06110a;font-family:'Outfit',sans-serif;font-weight:700;font-size:17px;padding:18px 40px;border-radius:999px;transition:background .25s,transform .25s;cursor:pointer}
-.btn-big:hover{background:var(--green-hover);transform:translateY(-2px)}
+.btn-big{display:inline-flex;align-items:center;gap:12px;background:var(--green-bright);color:var(--dark);font-family:'Outfit',sans-serif;font-weight:700;font-size:17px;padding:18px 40px;border-radius:999px;transition:background .25s,transform .25s;cursor:pointer}
+.btn-big:hover{background:var(--green-bright-hover);transform:translateY(-2px)}
 .btn-big svg{width:20px;height:20px}
 footer{border-top:1px solid var(--line);padding:36px 24px;display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;max-width:1180px;margin:0 auto;color:var(--txt-dim);font-size:13px}
 footer b{color:var(--txt);font-family:'Outfit',sans-serif}
