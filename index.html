@@ -36,9 +36,13 @@ a{color:inherit;text-decoration:none}
 #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--green-bright),var(--green));z-index:1000;transition:width .1s linear}
 
 /* logo */
-.site-logo{position:fixed;top:18px;left:24px;z-index:900;display:block}
-.site-logo img{height:80px;width:auto;object-fit:contain;filter:drop-shadow(0 4px 16px rgba(8,14,10,.35))}
-@media(max-width:860px){.site-logo img{height:54px}}
+.site-logo{position:fixed;top:18px;left:24px;z-index:900;display:block;width:240px;height:80px}
+.site-logo img{position:absolute;top:0;left:0;height:80px;width:auto;object-fit:contain;object-position:left center;transition:opacity .3s}
+.site-logo img.lg-white{filter:drop-shadow(0 4px 16px rgba(8,14,10,.35));opacity:1}
+.site-logo img.lg-color{opacity:0}
+.site-logo.scrolled img.lg-white{opacity:0}
+.site-logo.scrolled img.lg-color{opacity:1;filter:drop-shadow(0 2px 10px rgba(16,32,20,.12))}
+@media(max-width:860px){.site-logo{width:162px;height:54px}.site-logo img{height:54px}}
 
 /* nav */
 nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:900;display:flex;align-items:center;gap:6px;
@@ -209,7 +213,10 @@ footer b i{color:var(--green);font-style:normal}
 
 <div id="progress"></div>
 
-<a href="#top" class="site-logo"><img src="logos/ambiconcept-principal-white.svg" alt="Ambiconcept"></a>
+<a href="#top" class="site-logo" id="siteLogo">
+  <img class="lg-white" src="logos/ambiconcept-principal-white.svg" alt="Ambiconcept">
+  <img class="lg-color" src="logos/ambiconcept-principal.svg" alt="Ambiconcept">
+</a>
 
 <nav>
   <a class="lnk" href="#grupo">Grupo</a>
@@ -614,6 +621,13 @@ function fill(el,list){
 }
 fill(document.getElementById('m1'),shots.filter((_,i)=>i%2===0));
 fill(document.getElementById('m2'),shots.filter((_,i)=>i%2===1));
+
+// logo: troca para versão a cores fora do hero (fundo escuro)
+const siteLogo=document.getElementById('siteLogo');
+const logoIo=new IntersectionObserver(es=>es.forEach(e=>{
+  siteLogo.classList.toggle('scrolled',!e.isIntersecting);
+}),{rootMargin:'-90px 0px 0px 0px',threshold:0});
+logoIo.observe(document.getElementById('top'));
 
 // scroll progress
 const prog=document.getElementById('progress');
