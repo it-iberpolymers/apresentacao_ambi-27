@@ -631,7 +631,7 @@ footer b i{color:var(--green);font-style:normal}
 
 <div class="kbdhint"><b>◂ ▸</b> navegar por secções</div>
 
-<audio id="bgm" src="assets/ambiente.mp3" loop preload="none"></audio>
+<audio id="bgm" src="assets/ambiente.m4a" loop preload="none"></audio>
 <button class="bgm" id="bgmBtn" aria-label="Ligar/desligar música de fundo" hidden>
   <span class="bars"><i></i><i></i><i></i></span>
 </button>
@@ -771,7 +771,7 @@ addEventListener('touchmove',()=>{navIdx=null},{passive:true});
 
 // música de fundo: botão só aparece se o ficheiro existir; arranca por gesto do utilizador
 const bgm=document.getElementById('bgm'),bgmBtn=document.getElementById('bgmBtn');
-fetch('assets/ambiente.mp3',{method:'HEAD'}).then(r=>{if(r.ok)bgmBtn.hidden=false}).catch(()=>{});
+fetch('assets/ambiente.m4a',{method:'HEAD'}).then(r=>{if(r.ok)bgmBtn.hidden=false}).catch(()=>{});
 bgmBtn.addEventListener('click',()=>{
   if(bgm.paused){bgm.volume=.3;bgm.play().catch(()=>{});bgmBtn.classList.add('playing')}
   else{bgm.pause();bgmBtn.classList.remove('playing')}
