@@ -36,8 +36,8 @@ a{color:inherit;text-decoration:none}
 #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--green-bright),var(--green));z-index:1000;transition:width .1s linear}
 
 /* logo */
-.site-logo{position:fixed;top:18px;left:24px;z-index:900;display:block;width:240px;height:80px}
-.site-logo img{position:absolute;top:0;left:0;height:80px;width:auto;object-fit:contain;object-position:left center;transition:opacity .3s}
+.site-logo{position:fixed;top:18px;left:24px;z-index:900;display:block;width:clamp(168px,13vw,270px);height:clamp(56px,4.3vw,90px)}
+.site-logo img{position:absolute;top:0;left:0;height:clamp(56px,4.3vw,90px);width:auto;object-fit:contain;object-position:left center;transition:opacity .3s}
 .site-logo img.lg-white{filter:drop-shadow(0 4px 16px rgba(8,14,10,.35));opacity:1}
 .site-logo img.lg-color{opacity:0}
 .site-logo.scrolled img.lg-white{opacity:0}
@@ -615,7 +615,7 @@ footer b i{color:var(--green);font-style:normal}
 // gallery images
 const shots=[175,176,177,178,179,180,181,182,190,191,192,193,194,195,196,197,198,199,200,201,202,204,205,206,207,208,209,210,211,212,213,214,244,245,251,252,253,254,255,256,257,258,261,262,263,264,313,314,315,318,319,322];
 function fill(el,list){
-  const make=n=>{const d=document.createElement('div');d.className='shot';d.innerHTML=`<img src="thumbs/web-${n}.jpg" alt="AMBI 2.7 — vista ${n}" loading="lazy">`;return d};
+  const make=n=>{const d=document.createElement('div');d.className='shot';d.innerHTML=`<img src="assets/web-${n}.jpg" alt="AMBI 2.7 — vista ${n}" loading="lazy">`;return d};
   list.forEach(n=>el.appendChild(make(n)));
   list.forEach(n=>el.appendChild(make(n))); // duplicate for seamless loop
 }
