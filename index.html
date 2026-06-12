@@ -91,7 +91,6 @@ p.lead{color:var(--txt-dim);font-size:clamp(15px,1.8vw,18px);max-width:640px;mar
 
 /* reveal */
 .rv{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.65,.25,1),transform .8s cubic-bezier(.2,.65,.25,1),filter .8s cubic-bezier(.2,.65,.25,1)}
-.rv.in{opacity:1;transform:none;filter:none}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
 /* variantes direcionais (atribuídas por JS nas secções split) */
 .rv.rv-l{transform:translateX(-48px)}
@@ -99,6 +98,8 @@ p.lead{color:var(--txt-dim);font-size:clamp(15px,1.8vw,18px);max-width:640px;mar
 .rv.rv-m{transform:translateY(48px) scale(.94);filter:blur(10px)}
 /* títulos: entrada palavra a palavra */
 h2.title.rv,.hero h1.rv{transform:none}
+/* .in tem de vir DEPOIS das variantes para as anular no fim da animação */
+.rv.in{opacity:1;transform:none;filter:none}
 h2.title .w,.hero h1 .w{display:inline-block;opacity:0;transform:translateY(.65em);transition:opacity .7s cubic-bezier(.2,.65,.25,1),transform .7s cubic-bezier(.2,.65,.25,1)}
 h2.title.in .w,.hero h1.in .w{opacity:1;transform:none}
 /* link ativo na navegação */
